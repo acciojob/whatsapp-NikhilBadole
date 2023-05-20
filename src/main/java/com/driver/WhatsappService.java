@@ -43,15 +43,15 @@ public class WhatsappService {
     }
 
     public int sendMessage(Message message, User sender, Group group) throws Exception {
-        if(!whatsappRepository.getGroupUserMap().containsKey(group)){
-            throw new Exception("Group does not exist");
-        }
+//        if(!whatsappRepository.getGroupUserMap().containsKey(group)){
+//            throw new Exception("Group does not exist");
+//        }
+//
+//        if(!whatsappRepository.getGroupUserMap().get(group).contains(sender)){
+//            throw new Exception("You are not allowed to send message");
+//        }
 
-        if(!whatsappRepository.getGroupUserMap().get(group).contains(sender)){
-            throw new Exception("You are not allowed to send message");
-        }
-
-        return  whatsappRepository.addMessageToGroup(message, group);
+        return  whatsappRepository.addMessageToGroup(message, group, sender);
     }
 
     public String changeAdmin(User approver, User user, Group group) throws Exception {
